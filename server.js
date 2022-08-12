@@ -3,14 +3,6 @@ const { Client, GatewayIntentBits } = require('discord.js')
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
 
 client.on("ready", async () => {
-    client.user.setPresence({
-      activities: [
-        {
-          name: "no. | /about",
-          type: "PLAYING",
-        },
-      ],
-    });
     console.log(`bot is also online! ${client.user.tag}`);
     /* Template
     const help = {
@@ -37,5 +29,13 @@ client.on("ready", async () => {
       } catch (error) {
         console.error(error);
       }
-    })();
-  });
+  })();
+});
+
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	if (interaction.commandName === 'ping') {
+		await interaction.reply('Pong!');
+	}
+});
