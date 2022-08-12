@@ -6,15 +6,10 @@ const schema = new mongoose.Schema({
             type: Number,
             required: true,
         },
-    },
-    discord: {
-        type: String,
-        required: true,
-    },
-    
-    verified: {
-        type: Boolean,
-        default: false,
+        discord: {
+            type: String,
+            required: true,
+        },
     },
 
     admin: {
@@ -33,14 +28,15 @@ const schema = new mongoose.Schema({
     },
 
     plan: {
-        type: String,
-        default: "Free"
+        name: {
+            type: String,
+            default: "Free"
+        },
+        hubsOwned: {
+            type: Number,
+            default: 0,
+        }
     },
-
-    hubsOwned: {
-        type: Number,
-        default: 0,
-    }
 
 });
 

@@ -1,19 +1,11 @@
-const axios = require('axios');
-const { Client, GatewayIntentBits } = require('discord.js')
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
-const mongoose = require('mongoose');
-const User = require('./src/app/database/models/User')
+require("dotenv").config();
 
+const axios = require('axios');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js')
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
 client.login('MTAwNzc0OTgwNzgyMzEyNjUyOA.GW77-Z.2oaqqgziF27GcO1y5pXoIh7Luh1IYYrkfBgGeA')
 
 client.on("ready", async () => {
-
-  const userRecord = new User({
-    "accounts.discord": "",
-    "accounts.roblox": 0,
-  })
-  await userRecord.save()
-
     console.log(`bot is also online! ${client.user.tag}`);
     /* Template
     const help = {
@@ -58,9 +50,5 @@ client.on("ready", async () => {
 });
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isChatInputCommand()) return;
-
-	if (interaction.commandName === 'profile') {
-		await interaction.reply('');
-	}
+	
 });
