@@ -13,25 +13,19 @@ client.on("ready", async () => {
       description: "Presents a list of commands."
     };
     */
-  
-    const commands = [
-      {
-        name: "retrieve",
-        description: "Retrieve a product you purchased.",
-      }
-    ];
 
     const commands = [
       {
         name: "transfer",
         description: "Transfer a product you purchased to someone else. This action is irreversible!",
-      }
-    ];
-
-    const commands = [
+      },
       {
         name: "profile",
         description: "View your Opal Hub profile, and see what products you own.",
+      },
+      {
+        name: "retrieve",
+        description: "Retrieve a product you purchased.",
       }
     ];
   
