@@ -44,5 +44,7 @@ client.on("ready", async () => {
 });
 
 client.on('interactionCreate', async interaction => {
-	
+	if (commandName === 'ping') {
+		await interaction.reply('Pong!');
+	}
 });
