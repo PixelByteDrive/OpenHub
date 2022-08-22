@@ -1,13 +1,9 @@
-module.exports(user, EmbedBuilder, interaction) = {
-    const user = await User.findOne({
-        discord: userId,
-      }).exec()
-      if (!user) {
-        await interaction.reply({ content: "You need to run `/verify` to use this command.", ephemeral: true });
-      } else {
-        const embed = new EmbedBuilder()
-          .setTitle("Profile")
-          .addFields({ name: 'Roblox', value: ''})
-            await interaction.reply({ embeds: [embed] });
-      }
+exports.run = async(interaction, EmbedBuilder) => {
+  const embed = new EmbedBuilder()
+    .setTitle("Profile")
+    .addFields({ name: "Discord", value: "Pixel" })
+    .addFields({ name: "Roblox", value: "killianus2008" })
+    .addFields({ name: "Products", value: "Needs work." }) // Need help here.
+    .setColor("Blurple");
+  await interaction.reply({ embeds: [embed] });
 }
