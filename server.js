@@ -1,9 +1,9 @@
 require("dotenv").config();
 
 const axios = require('axios');
-const { Client, GatewayIntentBits, EmbedBuilder, REST, Routes, ButtonBuilder, ButtonStyle, ActionRowBuilder, ModalBuilder, SelectMenuBuilder, TextInputBuilder, TextInputStyle } = require('discord.js')
+const { Client, GatewayIntentBits, EmbedBuilder, REST, Routes, ButtonBuilder, ButtonStyle, ModalBuilder, SelectMenuBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
-client.login('MTAwNzc0OTgwNzgyMzEyNjUyOA.GW77-Z.2oaqqgziF27GcO1y5pXoIh7Luh1IYYrkfBgGeA')
+client.login(process.env.token)
 
 client.on("ready", async () => {
     console.log(`bot is also online! ${client.user.tag}`);
@@ -47,7 +47,14 @@ client.on('interactionCreate', async interaction => {
   if (interaction.isChatInputCommand) {
     try {
       let cmdFile = require(`./src/commands/${interaction.commandName}.js`);
-      cmdFile.run(interaction, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ModalBuilder, SelectMenuBuilder, TextInputBuilder, TextInputStyle);
+      cmdFile.run(interaction);
+    } catch (err) {
+      console.log(err);
+    }
+  } else if (interaction.customId) {
+    try {
+      let cmdFile = require(`./src/commands/${interaction.customId}.js`);
+      cmdFile.run(interaction);
     } catch (err) {
       console.log(err);
     }

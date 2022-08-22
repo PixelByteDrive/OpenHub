@@ -1,4 +1,6 @@
-exports.run = async(interaction, EmbedBuilder, ActionRowBuilder, SelectMenuBuilder) => {
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
+
+exports.run = async(interaction) => {
     const embed = new EmbedBuilder()
       .setTitle('Select a product')
       .setDescription("Select a product you own that you'd like to retrieve.")
