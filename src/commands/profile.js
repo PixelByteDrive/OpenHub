@@ -1,4 +1,6 @@
-exports.run = async(interaction, EmbedBuilder) => {
+const { EmbedBuilder } = require('discord.js');
+
+exports.run = async(interaction) => {
   const embed = new EmbedBuilder()
     .setTitle("Profile")
     .addFields({ name: "Discord", value: "Pixel" })

@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js"
   },
+  "engines": {
+    "node": "v16.14.2"
+  },
   "author": "pixelbytedrive",
   "license": "ISC",
   "dependencies": {

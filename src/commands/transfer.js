@@ -1,4 +1,6 @@
-exports.run = async(interaction, EmbedBuilder, ButtonBuilder, ActionRowBuilder) => {
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder } = require('discord.js');
+
+exports.run = async(interaction) => {
     const embed = new EmbedBuilder()
       .setTitle("Are you sure?")
       .setDescription("Are you sure you want to transfer a product? This cannot be undone!")
