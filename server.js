@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const axios = require('axios');
-const { Client, GatewayIntentBits, EmbedBuilder, REST, Routes, ButtonBuilder, ButtonStyle, ModalBuilder, SelectMenuBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
+const { Client, REST, GatewayIntentBits, Routes } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
 client.login(process.env.token)
 
