@@ -1,9 +1,9 @@
 require("dotenv").config();
 
 const axios = require('axios');
-const { Client, REST, GatewayIntentBits, Routes } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]})
-client.login(process.env.token)
+const { Client, REST, GatewayIntentBits, Routes, ApplicationCommandType, ContextMenuCommandBuilder } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages ]});
+client.login(process.env.token);
 
 client.on("ready", async () => {
     console.log(`bot is also online! ${client.user.tag}`);
@@ -13,7 +13,6 @@ client.on("ready", async () => {
       description: "Presents a list of commands."
     };
     */
-
     const commands = [
       {
         name: "transfer",
@@ -26,6 +25,14 @@ client.on("ready", async () => {
       {
         name: "retrieve",
         description: "Retrieve a product you purchased.",
+      },
+      {
+        name: "ping",
+        description: "Tests the bot's latency.",
+      },
+      {
+        name: "botinfo",
+        description: "Information about the bot.",
       }
     ];
   
@@ -51,12 +58,13 @@ client.on('interactionCreate', async interaction => {
     } catch (err) {
       console.log(err);
     }
-  } else if (interaction.customId) {
+  } /* else if (interaction.isButton()) {
     try {
-      let cmdFile = require(`./src/commands/${interaction.customId}.js`);
+      console.log(interaction.customId)
+      let cmdFile = require(`./src/interactions/${interaction.customId}.js`);
       cmdFile.run(interaction);
     } catch (err) {
       console.log(err);
     }
-  }
+  } */ // Check transfer.js for more information
 });
