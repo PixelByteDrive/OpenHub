@@ -13,7 +13,6 @@ const path = require("path");
 // Static Files
 app.use("/assets", express.static(path.join(__dirname, "/public")));
 
-
 // Helmet Setup
 app.use(
   helmet({
